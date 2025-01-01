@@ -2,62 +2,122 @@
 
 ## What This Software Does
 
-This is a tool that helps investors and financial professionals analyze stock options. It creates visual displays of important options trading information, specifically something called "volatility surfaces" which help traders understand how the market views risk across different time periods.
-
-Think of it like a weather map for the stock market - just like a weather map shows you where it might rain or be sunny, our tool shows you where the market expects more or less price movement in options.
+This is a professional-grade tool for analyzing options market data, specifically volatility surfaces. It provides real-time visualization of implied volatility across different strikes and expirations, helping traders and analysts understand market pricing of risk.
 
 ## Main Features
 
-- **Real-Time Data**: Shows you up-to-the-minute options information from the stock market
-- **Easy-to-Read Visuals**: Displays complex market data in a clear, color-coded format
-- **Professional-Grade Analysis**: Uses the same type of analysis tools that professional traders use
-- **Works on Any Device**: Whether you're using a computer, tablet, or phone, the display adjusts to fit your screen
+- **Real-Time Data**: Live options data from Polygon.io API
+- **Interactive Surface Display**: 
+  - Color-coded volatility matrix
+  - Sortable by strikes and expirations
+  - Individual column IV sorting
+  - At-the-money highlighting
+- **Advanced Sorting**:
+  - Strike price sorting (ascending/descending)
+  - Expiration date sorting
+  - Column-specific IV sorting
+- **Visual Indicators**:
+  - Blue/Red gradient for volatility differences
+  - ATM strike highlighting
+  - Near-ATM range indication
+  - Tooltips with detailed information
 
-## How to Use It
+## Technical Stack
 
-1. Enter a stock symbol (like AAPL for Apple or MSFT for Microsoft)
-2. Click the "Fetch Data" button
-3. View the color-coded table that appears
+- **Frontend**: React with TypeScript
+- **State Management**: React hooks with functional patterns
+- **Data Handling**: fp-ts for type-safe operations
+- **API Integration**: Polygon.io REST API
+- **Styling**: Tailwind CSS
+- **Build Tool**: Vite
+
+## Architecture Highlights
+
+- **Type Safety**: Comprehensive TypeScript definitions
+- **Functional Programming**: Pure functions and immutable data
+- **Error Handling**: Monadic error handling with Either type
+- **Performance**: 
+  - Memoized sorting operations
+  - Pagination support for large datasets
+  - Efficient DOM updates
+
+## Getting Started
+
+### Prerequisites
+- Node.js (v18 or later)
+- Polygon.io API key
+- Modern web browser
+
+### Installation
+```bash
+# Clone the repository
+git clone [repository-url]
+
+# Install dependencies
+npm install
+
+# Create .env file
+echo "VITE_POLYGON_API_KEY=your_api_key_here" > .env
+
+# Start development server
+npm run dev
+```
+
+### Usage
+1. Enter a stock symbol
+2. Select option type (Calls/Puts)
+3. Use column headers to sort data:
+   - Click "Strike" to sort by strike price
+   - Click "Expirations" to sort by date
+   - Click individual expiration dates to sort by IV
+4. In the color-coded table that appears
    - Blue means lower volatility (market expects less price movement)
    - Red means higher volatility (market expects more price movement)
    - Brighter colors mean stronger expectations
 
-## What You'll See
+## Development
 
-The tool shows you a table with:
-- Different prices (called "strikes") down the left side
-- Different dates (expiration dates) across the top
-- Colors in each cell showing how much movement the market expects
-- A highlighted row showing the current stock price
+### Code Structure
+```
+src/
+  ├── components/
+  │   └── VolatilitySurface/      # Main component
+  ├── hooks/
+  │   └── useOptionsData.ts       # Data fetching hook
+  ├── types/
+  │   └── domain/
+  │       └── option.ts           # Type definitions
+  └── services/
+      └── optionsService.ts       # API service layer
+```
 
-## Requirements
+### Key Features Implementation
+- Functional error handling with fp-ts
+- Type-safe API response processing
+- Memoized sorting and filtering
+- Responsive table layout
+- Real-time data updates
 
-To use this software, you'll need:
-1. A modern web browser (like Chrome, Firefox, or Safari)
-2. An internet connection
-3. A Polygon.io account for market data access
+### Testing
+```bash
+# Run tests
+npm test
 
-## Getting Help
+# Check types
+npm run typecheck
+```
 
-If you need assistance:
-1. Contact our support team at [email]
-2. Visit our help center at [website]
-3. Check our user guide at [link]
+## Contributing
 
-## Privacy & Security
+See [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
 
-We take your privacy seriously:
-- We don't store any personal information
-- All market data comes from reliable, professional sources
-- Your analysis remains private to you
+## License
 
-## For Developers
+This project is licensed under the GPLv3 license - see the [LICENSE.md](LICENSE.md) file for details.
 
-If you're a software developer interested in the technical details or contributing to the project, please see our [Developer Guide](DEVELOPER.md).
+## Not Financial Advice
 
-## Legal Information
-
-This software is provided under the MIT License. While we strive to provide accurate information, please remember that:
+Please remember that:
 - This tool is for informational purposes only
 - It is not financial advice
 - Always consult with a financial professional before making investment decisions
@@ -66,13 +126,11 @@ This software is provided under the MIT License. While we strive to provide accu
 
 Virtuous Finance creates professional-grade financial analysis tools that help make complex market data more accessible and understandable.
 
-## Contact
+## Contact & Support
 
-For questions or support:
-- Email: [support email]
-- Website: [company website]
-- Phone: [support phone number]
+- Website: https://virtuous.finance
+- Support: support@virtuous.finance
 
 ---
 
-*Remember: Options trading involves significant risk and isn't suitable for all investors. Make sure you understand these risks before trading.*
+*Disclaimer: This tool is for informational purposes only. Options trading involves significant risk and isn't suitable for all investors.*
