@@ -1,8 +1,41 @@
+/**
+ * @file src/App.tsx 
+ * @fileoverview Main application component
+ * 
+ * @version 1.0.0
+ * @author Virtuous Finance LLC
+ * @copyright (c) 2025 Virtuous Finance LLC. All rights reserved.
+ * @lastModified Wednesday, January 1, 2025
+ */
+
+import React from 'react';
+import VolatilitySurface from './components/VolatilitySurface';
 import vfiPNG from './assets/virtuousfinance-icon-500x500px.png'
 import vfiSVG from '/virtuousfinance-icon-500x500px.svg'
-import VolatilitySurface from './components/VolatilitySurface'
 
-const App = () => {
+/**
+ * Gets API key from environment variables with type safety
+ * @throws {Error} If API key is not found or invalid
+ */
+const getApiKey = (): string => {
+  const apiKey = import.meta.env.VITE_POLYGON_API_KEY;
+  
+  if (!apiKey) {
+    throw new Error(
+      'Polygon API key not found. Please add VITE_POLYGON_API_KEY to your .env file.'
+    );
+  }
+
+  if (typeof apiKey !== 'string' || apiKey.trim() === '') {
+    throw new Error('Invalid Polygon API key format.');
+  }
+
+  return apiKey;
+};
+
+const App: React.FC = () => {
+  const apiKey = getApiKey();
+
   return (
     <div className="min-h-screen bg-[#1C1531] text-white">
       {/* Header */}
@@ -27,7 +60,7 @@ const App = () => {
           
           {/* Card Container */}
           <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 shadow-lg">
-            <VolatilitySurface />
+            <VolatilitySurface apiKey={apiKey} />
           </div>
         </div>
       </main>
@@ -45,7 +78,7 @@ const App = () => {
         </div>
       </footer>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
