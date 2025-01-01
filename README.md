@@ -1,4 +1,4 @@
-# Virtuous Finance - Options Volatility Surface Analyzer
+# Virtuous Finance OPTIX [Options Matrix Analytics]
 
 ## What This Software Does
 
@@ -51,7 +51,7 @@ This is a professional-grade tool for analyzing options market data, specificall
 ### Installation
 ```bash
 # Clone the repository
-git clone [repository-url]
+git clone https://github.com/virtuousfinancier/optix
 
 # Install dependencies
 npm install
