@@ -1,21 +1,62 @@
+/**
+ * @file src/index.css
+ * @fileoverview Global styles and Tailwind CSS configuration
+ * 
+ * @description
+ * Primary stylesheet that:
+ * - Imports required font families
+ * - Configures Tailwind CSS directives
+ * - Sets global document styles
+ * - Defines base font families
+ * 
+ * @dependencies
+ * - Google Fonts: Barlow and Inter
+ * - Tailwind CSS: Utility framework
+ * 
+ * @usage
+ * Imported in main.tsx to provide global styles:
+ * ```typescript
+ * import './index.css'
+ * ```
+ * 
+ * @version 1.0.0
+ * @author Virtuous Finance LLC
+ * @copyright (c) 2025 Virtuous Finance LLC
+ * @lastModified Wednesday, January 1, 2025
+ */
+
+/* Import font families from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500&family=Inter:wght@100;200;300;400;500&display=swap');
 
+/* Tailwind CSS directives */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/**
+ * @styles Global Document
+ * @description Base document styling and resets
+ */
 body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
-  background-color: #1C1531;
+  background-color: #1C1531;  /* Dark purple theme background */
   font-family: 'Barlow', sans-serif;
 }
 
+/**
+ * @styles Root Container
+ * @description Styles for the root application container
+ */
 #root {
   min-height: 100vh;
 }
 
+/**
+ * @styles Typography
+ * @description Global heading styles
+ */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Inter', sans-serif;
 }
