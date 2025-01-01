@@ -334,17 +334,17 @@ const sortedData = useMemo(() => {
   return (
     <div className="w-full bg-white/5 backdrop-blur-sm rounded-xl p-6">
       <div className="mb-6">
-        <h2 className="text-2xl font-bold mb-4">Options Volatility Surface</h2>
+        <h2 className="text-2xl font-bold mb-4 uppercase">{ticker} options matrix</h2>
         
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="flex gap-4">
-            <input
-              type="text"
-              value={ticker}
-              onChange={(e) => setTicker(e.target.value)}
-              placeholder="Enter ticker (e.g., AAPL)"
-              className="flex-1 px-4 py-2 border rounded bg-white/5 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
+<input
+  type="text"
+  value={ticker}
+  onChange={(e) => setTicker(e.target.value.toUpperCase())}
+  placeholder="Enter ticker (e.g., AAPL)"
+  className="flex-1 px-4 py-2 border rounded bg-white/5 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+/>
             <button
               type="submit"
               disabled={isLoading}
@@ -369,7 +369,7 @@ const sortedData = useMemo(() => {
           <div className="flex gap-4">
             <button
               onClick={() => handleTypeChange('call')}
-              className={`px-4 py-2 rounded transition-colors ${
+              className={`px-4 py-2 rounded transition-colors uppercase ${
                 selectedType === 'call' 
                   ? 'bg-blue-600 text-white' 
                   : 'bg-white/5 hover:bg-white/10'
@@ -379,7 +379,7 @@ const sortedData = useMemo(() => {
             </button>
             <button
               onClick={() => handleTypeChange('put')}
-              className={`px-4 py-2 rounded transition-colors ${
+              className={`px-4 py-2 rounded transition-colors uppercase ${
                 selectedType === 'put' 
                   ? 'bg-blue-600 text-white' 
                   : 'bg-white/5 hover:bg-white/10'
