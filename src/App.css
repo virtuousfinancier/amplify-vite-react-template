@@ -6,8 +6,7 @@
  * Defines specific styles for the App component including:
  * - Root container sizing
  * - Logo animations and effects
- * - Card and layout styles
- * - Responsive adjustments
+ * - Responsive layout adjustments
  * 
  * Note: Most styling is handled by Tailwind utility classes.
  * This file contains only styles that require custom CSS.
@@ -37,10 +36,7 @@
 
 /**
  * @styles Logo
- * @description Logo styling and animations
- * 
- * @modifiers
- * .logo.react - Special handling for React logo variant
+ * @description Logo styling and hover effects
  */
 .logo {
   height: 6em;
@@ -51,47 +47,4 @@
 
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
-}
-
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-/**
- * @styles Logo Animation
- * @description Defines the spinning animation for logos
- */
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/**
- * @styles Animation Control
- * @description Applies spinning animation with motion preferences
- */
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-/**
- * @styles Card
- * @description Card container styling
- */
-.card {
-  padding: 2em;
-}
-
-/**
- * @styles Documentation Link
- * @description Styling for documentation links
- */
-.read-the-docs {
-  color: #888;
 }
